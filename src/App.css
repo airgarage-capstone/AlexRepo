@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -25,45 +27,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-#root {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: #ffffff;
-    width: 268px;
-    margin: auto;
-    background-color: #fa824c;
-    border-radius: 25px;
-    text-align: center;
-    padding: 0px;
-}
-
-#root div {
-    width: 100px;
-    display: inline-block;
-    font-size: 16px;
-}
-
-#root input {
-
-}
-
-#root label {
-    text-align: left;
-    font-size: 15px;
-}
-
-#root #AccountTypeInput {
-    margin: auto;
-    width: 268px;
-}
-
-h1 {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 700;
-    font-size: 36px;
-    color: #ffffff;
-    text-align: center;
 }
