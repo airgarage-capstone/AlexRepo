@@ -1,42 +1,92 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
 
 #root {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: #ffffff;
-    width: 268px;
-    margin: auto;
-    background-color: #fa824c;
-    border-radius: 25px;
-    text-align: center;
-    padding: 0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  width: 60%;
+  height: 400px;
+  margin: auto;
+  
 }
 
-#root div {
-    width: 100px;
-    display: inline-block;
-    font-size: 16px;
+#root .container {
+  position: relative;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Ubuntu;
+}
+#root .optionSelect {
+    padding: 0px 8px;
+    text-align:center;
 }
 
-#root input {
-
+.signupheader {
+  position: relative;
+  width: 94.6967872453%;
+  height: 40px;
+  margin: 0px auto 0;
 }
 
-#root label {
-    text-align: left;
-    font-size: 15px;
+.signuptitle {
+  width: 100%;
+  min-height: 30px;
+  padding-top:10px;
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
 }
 
-#root #AccountTypeInput {
-    margin: auto;
-    width: 268px;
+#root ._input {
+  display: block;
+  width: 90%;
+  height: 28px;
+  margin: 8px auto;
+  padding: 0px 8px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  background-color: rgba(0, 0, 0, 0.01);
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Ubuntu;
 }
 
-h1 {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 700;
-    font-size: 36px;
-    color: #ffffff;
-    text-align: center;
+#root ._input:focus {
+  border-width: 1px;
+  border-color: #1da1f2;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+#root .AccountTypeInput {
+    font-size:12px;
+}
+
+#root .submitArea {
+    margin: 16px;
+    text-align:center;
+}
+
+#root .enforcedFields {
+    font-size:10px;
+    margin:-5px 0px;
+    padding: 0px 8px;
+}
+
+#root .dualForms {
+    width:42%;
+    border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.90);
+  
+  display:inline-block;
+  margin: 20px;
 }

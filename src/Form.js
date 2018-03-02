@@ -5,14 +5,14 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "Dan",
-      lastName: "Levy",
-      email: "danlevy@asu.edu",
+      firstName: "",
+      lastName: "",
+      email: "",
       pass: "",
       host: false,
       driver: false,
       dob: "",
-      phone: 6025551000
+      phone: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,50 +37,58 @@ class Form extends React.Component {
 
   render() {
     return (
-      
+
+      <div className="dualForms">
       <form onSubmit={this.handleInputSubmit}>
-        
-        <h1><br />Sign Up</h1>
+      
+        <div className="signupheader clearfix">
+        <div className="signuptitle clearfix">Sign Up</div>
+        </div>
+
+        <div className="container clearfix">
         <label>
-          <div>First Name</div>
-          <input
-            name="firstName"
-            type="text"
-            value={this.state.firstName}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          <div>Last Name</div>
-          <input
-            name="lastName"
-            type="text"
-            value={this.state.lastName}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          <div>Email</div>
           <input
             name="email"
             type="email"
+            placeholder="Email Address"
             value={this.state.email}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange} 
+            className="_input"     />
         </label>
-        <br />
+        
         <label>
-          <div>Password</div>
           <input
             name="pass"
             type="password"
+            placeholder="Create a password"
             value={this.state.pass}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange} 
+            className="_input"     />
         </label>
-        <br />
-        <br />
+        
+        <label>
+          <input
+            name="firstName"
+            type="text"
+            placeholder="First Name"
+            value={this.state.firstName}
+            onChange={this.handleInputChange} 
+            className="_input"  />
+        </label>
+        
+        <label>
+          <input
+            name="lastName"
+            type="text"
+            placeholder="Last Name"
+            value={this.state.lastName}
+            onChange={this.handleInputChange} 
+            className="_input"     />
+        </label>
+        <div className="optionSelect">
         I will be using AirGarage to...
         <br />
-        <div id="AccountTypeInput">
+        <div className="AccountTypeInput">
             <label>
               Find Parking
               <input
@@ -99,28 +107,37 @@ class Form extends React.Component {
                 onChange={this.handleInputChange} />
             </label>
         </div>
-        <br />
-        <br />
+        </div>
+        
+        
         <label>
-          <div>Date of Birth</div>
           <input
             name="dob"
             type="date"
+    
             value={this.state.dob}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange} 
+            className="_input"     />
         </label>
+        <div className="enforcedFields">Date of Birth</div>
         <label>
-          <div>Phone</div>
           <input
             name="phone"
             type="number"
             value={this.state.phone}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange} 
+            className="_input"     />
         </label>
-        <br /><br />
-        <button> Submit </button>
-        <br /><br />
+        <div className="enforcedFields">Phone Number</div>
+        <div className="submitArea">
+        <button>Submit</button>
+        </div>
+        
+        </div>
+        
       </form>
+      </div>
+
     );
   }
 }
