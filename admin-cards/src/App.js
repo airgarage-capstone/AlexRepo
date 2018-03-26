@@ -1,62 +1,37 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import Card from './Card';
 
 class App extends Component {
+
+    state = {
+        spots: []
+    }
+
+    componentDidMount() {
+        axios.get(`https://airgara.ge/api/spots/`)
+          .then(res => {
+            const spots = res.data;
+            this.setState({ spots });
+          })
+    }
   render() {
     return (
       <div className="App">
-        <Card 
-            name="Lorraine's parking spot" 
-            streetAddress="699 S Mill Ave."
-            city="Tempe"
-            state="AZ"
-            zip={85281}
-            quantity={3}
-            price={50}
-            availableAlways={false}
-        />
-        <Card 
-            name="Alex's covered space" 
-            streetAddress="818 W Laird St."
-            city="Tempe"
-            state="AZ"
-            zip={85281}
-            quantity={1}
-            price={75}
-            availableAlways={false}
-        />
-        <Card 
-            name="Jeremy's alleyway" 
-            streetAddress="707 E Encanto Dr."
-            city="Tempe"
-            state="AZ"
-            zip={85281}
-            quantity={2}
-            price={35}
-            availableAlways={true}
-        />
-        <Card 
-            name="Emily's driveway" 
-            streetAddress="1201 E Alameda Dr."
-            city="Tempe"
-            state="AZ"
-            zip={85281}
-            quantity={7}
-            price={40}
-            availableAlways={false}
-        />
-        <Card 
-            name="Luke's tree-shaded spot" 
-            streetAddress="304 E. Concorda Dr."
-            city="Tempe"
-            state="AZ"
-            zip={85281}
-            quantity={1}
-            price={60}
-            availableAlways={true}
-        />
+      { this.state.spots.map(spot => <Card 
+
+            name={spot.name} 
+            streetAddress={spot.address.address_line1} 
+            city={spot.address.city}
+            state={spot.address.state}
+            zip={spot.address.zipcode}
+            quantity={spot.quantity}
+            price={spot.price}
+            availableAlways={spot.available_24_7}
+
+            />)}
       </div>
     );
   }

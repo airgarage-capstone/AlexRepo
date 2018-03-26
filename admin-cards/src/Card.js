@@ -14,7 +14,7 @@ class Card extends Component {
           <p className="spotaddresstext">{this.props.zip}</p>
           <p className="spotdetailstext spottext-top">{this.props.quantity} spots available</p>
           <p className="spotdetailstext">${this.props.price} per month</p>
-          <p className="spotdetailstext">Available 24/7: {this.props.availableAlways ? "True" : "False"}</p>
+          <p className="spotdetailstext">{this.props.availableAlways ? "Available 24/7" : "Not Available 24/7"}</p>
         </div>
       </div>
     );
@@ -26,7 +26,7 @@ Card.propTypes = {
     streetAddress: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired,
-    zip: PropTypes.number.isRequired,
+    zip: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     availableAlways: PropTypes.bool.isRequired
