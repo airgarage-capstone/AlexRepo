@@ -1,10 +1,12 @@
 
 .Card {
-  width: 240px;
-  height: 210px;
-  background-color: #f6f7f9;
-  display: inline-block;
-  margin: 8px 10px;
+  position: relative;
+  float: left;
+  width: 224px;
+  height: 324px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  margin: 10px;
 }
 
 .Card:hover {
@@ -12,40 +14,107 @@
 }
 
 .spotaddresstext {
-  float: left;
-  clear: both;
+  position: absolute;
+  left: 0;
   width: 100%;
   font-size: 1em;
   font-weight: 500;
-  color: #000000;
+  color: #404040;
 }
 
-.spotdetailstext {
-  float: left;
-  clear: both;
+.spotavailabilitytext {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  z-index: 6;
   width: 100%;
   min-height: 22px;
   font-size: 1em;
-  color: #000000;
+  color: #9fa8b2;
+}
+
+.spotdetailstext {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: 22px;
+  font-size: 1em;
+  color: #404040;
 }
 
 .spotinfo {
-  width: 200px;
-  height: 189px;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  width: 180px;
+  height: 284px;
+  margin: auto;
   padding-top: 13px;
   padding-bottom: 13px;
 }
 
 .spotnametext {
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
   width: 100%;
-  min-height: 44px;
+  min-height: 22px;
   font-size: 1.143em;
   font-weight: 700;
-  color: #fa824c;
+  color: #404040;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.spottext-top {
-  margin-top: 8px;
+.spotphoto {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  height: 128px;
+  background: url('./images/garage.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: scroll;
+}
+
+.spotpricetext {
+  position: absolute;
+  top: 170px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 100px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background-color: #59c4d3;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.16) inset;
+  font-size: 0.929em;
+  text-align: center;
+  color: #ffffff;
+}
+
+.spotaddresstext-1 {
+  top: 200px;
+  z-index: 5;
+}
+
+.spotaddresstext-2 {
+  top: 219px;
+  z-index: 4;
+}
+
+.spotaddresstext-3 {
+  top: 238px;
+  z-index: 3;
 }

@@ -17,6 +17,7 @@ class App extends Component {
             this.setState({ spots });
           })
     }
+    
   render() {
     return (
       <div className="App">
@@ -30,6 +31,7 @@ class App extends Component {
             quantity={spot.quantity}
             price={spot.price}
             availableAlways={spot.available_24_7}
+            photoURL={spot.photo_url}
 
             />)}
       </div>
