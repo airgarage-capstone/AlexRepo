@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Form.css';
 
 class LoginForm extends React.Component {
@@ -30,9 +31,35 @@ class LoginForm extends React.Component {
   }
 
    handleInputSubmit(event) {
-    alert("Account not found!\n");
+
     event.preventDefault();
-    console.log(this.state);
+
+    const user = {
+      username: this.state.email,
+      password: this.state.pass
+    };
+
+    axios.post('http://staging.airgara.ge/api/auth/', user)
+      .then(response => {
+            alert("Success!\n\nYour token is: " + response.data.token);
+        //console.log(response.status);
+        //console.log(response.data);
+        //console.log(response.request);
+      })
+
+      .catch(error => {
+        var errorResponse = "Unable to Login!\n\n";
+
+        for(var key in error.response.data) {
+            errorResponse += key;
+            errorResponse += ': ';
+            errorResponse += error.response.data[key];
+            errorResponse += '\n';
+        }
+            alert(errorResponse);
+            //console.log(error.response.data);
+        });
+    //console.log(this.state);
   }
 
   render() {

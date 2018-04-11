@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Form.css';
 
 class Form extends React.Component {
@@ -30,9 +31,41 @@ class Form extends React.Component {
   }
 
    handleInputSubmit(event) {
-    alert(this.state.firstName + ' ' + this.state.lastName + " you're all signed up!\n");
     event.preventDefault();
-    console.log(this.state);
+
+    const dateOfBirth = this.state.dob.substring(5,7) + "/"
+                        + this.state.dob.substring(8,10) + "/"
+                        + this.state.dob.substring(0,4);
+    const user = {
+    first_name : this.state.firstName,
+    last_name: this.state.lastName,
+    username: this.state.email,
+    password: this.state.pass,
+    profile : 
+    {
+    accountType: "Find parking",
+    dob: dateOfBirth,
+    phone : this.state.phone 
+    } 
+};
+
+    axios.post('http://staging.airgara.ge/api/register/', user)
+      .then(res => {
+        alert("Welcome to AirGarage, " + res.data.first_name + " " + res.data.last_name + "!");
+      })
+
+      .catch(error => {
+        var errorResponse = "Unable to Signup!\n\n";
+
+        for(var key in error.response.data) {
+            errorResponse += key;
+            errorResponse += ': ';
+            errorResponse += error.response.data[key];
+            errorResponse += '\n';
+        }
+            alert(errorResponse);
+            //console.log(error.response.data);
+      });
   }
 
   render() {
