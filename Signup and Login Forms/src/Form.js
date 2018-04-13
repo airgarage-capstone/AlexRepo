@@ -54,13 +54,10 @@ class Form extends React.Component {
     last_name: this.state.lastName,
     username: this.state.email,
     password: this.state.pass,
-    profile : 
-    {
     accountType: typeOfAccount,
     dob: dateOfBirth,
     phone : this.state.phone 
-    } 
-};
+    };
 
     axios.post('http://staging.airgara.ge/api/register/', user)
       .then(res => {
