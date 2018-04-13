@@ -36,6 +36,19 @@ class Form extends React.Component {
     const dateOfBirth = this.state.dob.substring(5,7) + "/"
                         + this.state.dob.substring(8,10) + "/"
                         + this.state.dob.substring(0,4);
+
+    var typeOfAccount = "";
+
+    if(this.state.driver && this.state.host) {
+        typeOfAccount = "Both";
+    } else if(this.state.driver) {
+        typeOfAccount = "Find parking";
+    } else if(this.state.host) {
+        typeOfAccount = "List a spot";
+    } else {
+        typeOfAccount = "I will be using AirGarage to...";
+    }
+
     const user = {
     first_name : this.state.firstName,
     last_name: this.state.lastName,
@@ -43,7 +56,7 @@ class Form extends React.Component {
     password: this.state.pass,
     profile : 
     {
-    accountType: "Find parking",
+    accountType: typeOfAccount,
     dob: dateOfBirth,
     phone : this.state.phone 
     } 
@@ -64,7 +77,7 @@ class Form extends React.Component {
             errorResponse += '\n';
         }
             alert(errorResponse);
-            //console.log(error.response.data);
+            console.log(error.response.data);
       });
   }
 
